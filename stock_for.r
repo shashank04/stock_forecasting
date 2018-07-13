@@ -1,10 +1,10 @@
 library(quantmod)
 library(forecast)
-getSymbols(Comapny)
+getSymbols(Company)
 write.zoo(Company, file="Company.csv", sep=",")
-company=read.csv("Company.csv",header = T)
+company=read.csv("Company.csv",header = T)/#taking the input
 head(company)
-company.ts=ts(rev(company[,]),start=c(2014,8),freq=3)//quarterly
+company.ts=ts(rev(company[,]),start=c(2014,8),freq=3)#quarterly
 company.ts
 company=data.frame(closing=company.ts,lclosing=log(company.ts))
 save(company,file="company.df.RData")
